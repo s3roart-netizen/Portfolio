@@ -64,7 +64,15 @@ body{margin:0;font-family:'Outfit',sans-serif;background:#fff;color:#333;-webkit
 
 /* --- STYLES FÜR KACHEL-BILDER --- */
 .ineed-bg { background-image: url('https://i.imgur.com/o8WvQ7P.jpeg'); }
-.ainews-bg { background-image: url('https://i.imgur.com/wC3Xl9V.jpeg');
+.ainews-bg { background-image: url('https://i.imgur.com/wC3Xl9V.jpeg'); }
+
+/* NEU: ArtAtlas & Theatre Booking App Kachel-Styles */
+.artatlas-bg {
+  background-image: radial-gradient(circle at top left, #ffe3a3, #ffcc70, #f59e0b);
+}
+
+.theatre-bg {
+  background-image: radial-gradient(circle at top right, #f97373, #c026d3, #1f2937);
 }
 
 /* ---- Projektansicht CSS ---- */
@@ -210,21 +218,39 @@ padding:8px 10px; border-radius:8px; cursor:pointer;
   <section class="container" id="work">
     <h2 class="visually-hidden" id="work-title">Meine Arbeit</h2>
     <div class="work-grid">
+      <!-- iNeed -->
       <button class="work-item" data-project="ineed" aria-controls="project-view" aria-label="Projekt iNeed ansehen">
         <div class="work-field">
-      
-        <div class="image-placeholder ineed-bg" aria-hidden="true">
-            <span class="visually-hidden">iNeed Projektbild</span>
+          <div class="image-placeholder ineed-bg" aria-hidden="true">
+              <span class="visually-hidden">iNeed Projektbild</span>
           </div>
         </div>
       </button>
 
+      <!-- AI News -->
       <button class="work-item" data-project="ai_news" aria-controls="project-view" aria-label="Projekt AI News ansehen">
         <div class="work-field">
           <div class="image-placeholder ainews-bg" aria-hidden="true">
             <span class="visually-hidden">AI News Projektbild</span>
-     
-           </div>
+          </div>
+        </div>
+      </button>
+
+      <!-- ArtAtlas -->
+      <button class="work-item" data-project="artatlas" aria-controls="project-view" aria-label="Projekt ArtAtlas ansehen">
+        <div class="work-field">
+          <div class="image-placeholder artatlas-bg" aria-hidden="true">
+            <span class="visually-hidden">ArtAtlas Projektbild</span>
+          </div>
+        </div>
+      </button>
+
+      <!-- Theatre Booking App -->
+      <button class="work-item" data-project="theatre_booking" aria-controls="project-view" aria-label="Projekt Theatre Booking App ansehen">
+        <div class="work-field">
+          <div class="image-placeholder theatre-bg" aria-hidden="true">
+            <span class="visually-hidden">Theatre Booking App Projektbild</span>
+          </div>
         </div>
       </button>
     </div>
@@ -245,8 +271,7 @@ padding:8px 10px; border-radius:8px; cursor:pointer;
 
     <div class="research-sub-subtitle" id="research-needs"></div>
     <div class="single-image-full-width" id="research-needs-image-container" style="display:none;">
-        <img id="research-needs-image" alt="Tabelle 
-Nutzerbefürfnisse" loading="lazy">
+        <img id="research-needs-image" alt="Tabelle Nutzerbedürfnisse" loading="lazy">
     </div>
 
     <div class="research-sub-subtitle" id="research-behavior"></div>
@@ -279,8 +304,7 @@ alt="Emotionen Bild 1" loading="lazy">
 
     <div class="research-sub-subtitle" id="research-demographics"></div>
     <div class="single-image-full-width" id="research-demographics-image-container" style="display:none;">
-      
-    <img id="research-demographics-image" alt="Tabelle Demographisches" loading="lazy">
+        <img id="research-demographics-image" alt="Tabelle Demographisches" loading="lazy">
     </div>
 
     <div class="project-subtitle" id="project-define"></div>
@@ -321,8 +345,7 @@ loading="lazy">
         </div>
         <div class="project-image-item">
             <img id="project-image-2" alt="Wireframe 2" loading="lazy">
-            
-<p class="image-caption" id="caption-2"></p>
+            <p class="image-caption" id="caption-2"></p>
         </div>
         <div class="project-image-item">
             <img id="project-image-3" alt="Wireframe 3" loading="lazy">
@@ -531,6 +554,8 @@ loading="lazy">
   const lightboxImg = document.getElementById('lightbox-img');
 
   const STATUS_TEXT_HTML = '<span class="live-status">Dieses Projekt befindet sich noch in Entwicklung</span>';
+  const STATUS_COMING_SOON_HTML = '<span class="live-status">Coming Soon</span>';
+
   const PROJECTS = {
     ineed: {
       mainTitle: "iNeed",
@@ -564,7 +589,6 @@ Insgesamt sollen Menschen schneller, effizienter und viel günstiger oder komple
       research_emotions: "",
       research_emotions_image_1: "",
       research_emotions_image_2: "",
-  
       research_goals: "",
       research_goals_image: "",
       research_painpoints: "",
@@ -576,16 +600,15 @@ Insgesamt sollen Menschen schneller, effizienter und viel günstiger oder komple
       sitemap: "Sitemap",
       sitemapImage: "https://i.imgur.com/LgiRJD8.jpeg",
       userFlow: "User Flow",
-      userFlowImage: "https://i.imgur.com/swelFA2.jpeg",
+      userFlowImage: "https://i.imgur.com/QoJqjw6.jpeg",
       wireframes: "Wireframes",
       image1: "https://i.imgur.com/ZQxEuMv.jpeg",
-   
       image2: "https://i.imgur.com/aCNAa0H.jpeg",
       image3: "",
       caption1: "",
       caption2: "",
       caption3: "",
-      finalDesign: "Final Design",
+      finalDesign: "Final Design (Made in SwiftUI)",
       finalImage1: "https://i.imgur.com/tHxe4Kp.jpeg",
       finalImage2: "https://i.imgur.com/qSvKoGc.jpeg",
       finalImage3: "https://i.imgur.com/xjQLcFn.jpeg",
@@ -594,7 +617,6 @@ Insgesamt sollen Menschen schneller, effizienter und viel günstiger oder komple
       finalImage6: "",
       finalImage7: "",
       finalImage8: "",
-    
       finalCaption1: "",
       finalCaption2: "",
       finalCaption3: "",
@@ -602,13 +624,11 @@ Insgesamt sollen Menschen schneller, effizienter und viel günstiger oder komple
       finalCaption5: "",
       finalCaption6: "",
       finalCaption7: "",
-      finalCaption8: "",
-      aiNewsFinalDesign: "",
+      finalCaption8: ""
     },
     ai_news: {
       mainTitle: "AI News",
       title:"Konzept",
-    
       status: STATUS_TEXT_HTML,
       text:`Das Ziel mit AI News war es, ein KI-gesteuertes Nachrichtenportal zu schaffen, das als All-in-1-Plattform dient und alles abdeckt, was bei den größten Nachrichtenagenturen passiert.
 <br><br>Die Aufgabe der KI ist es, nach vielen Berichten zu einem aktuellen Thema zu suchen und diese zu filtern.
@@ -618,12 +638,11 @@ Der Mehrwert der App: Es wird sichergestellt, dass der Leser mit allen wichtigen
 Dies spart Zeit für den Nutzer, versorgt ihn mit allen wichtigen Hauptpunkten und ist insgesamt ein effizienterer Weg, ihn auf dem Laufenden zu halten.`,
       research: "Research",
       research_intro_text: "Es erfolgte eine allgemeine Recherche mithilfe vom KI LLM Perplexity und ich ging auch folgende Kriterien ein und fasste abschließend die Infos zusammen.",
-      research_needs: "Nutzerbefürfnisse",
+      research_needs: "Nutzerbedürfnisse",
       research_needs_image: "https://i.imgur.com/TQ84obf.png",
       research_behavior: "Nutzerverhalten",
       research_behavior_image: "https://i.imgur.com/flWbDOO.png",
       research_context: "Kontext & Umfeld",
-    
       research_context_image_1: "https://i.imgur.com/pBYTJ0b.png",
       research_context_image_2: "https://i.imgur.com/aTdCwyK.png",
       research_emotions: "Emotionen",
@@ -637,12 +656,11 @@ Dies spart Zeit für den Nutzer, versorgt ihn mit allen wichtigen Hauptpunkten u
       research_demographics_image: "https://i.imgur.com/btQ3KgP.png",
       define: "Define",
       ideate: "Ideate",
-      // Bilder für Ideate (wie gewünscht)
+      // Bilder für Ideate
       ideateImage1: "https://i.imgur.com/6zKQH55.png",
       ideateImage2: "https://i.imgur.com/JwEL5yu.png",
       ideateImage3: "https://i.imgur.com/AS5cqXB.png",
       sitemap: "Sitemap",
-   
       sitemapImage: "https://i.imgur.com/US6heTo.jpeg",
       userFlow: "User Flow",
       userFlowImage: "https://i.imgur.com/xzJUEgN.jpeg",
@@ -653,7 +671,7 @@ Dies spart Zeit für den Nutzer, versorgt ihn mit allen wichtigen Hauptpunkten u
       caption1: "Wireframe Startseite (Desktop)",
       caption2: "Wireframe Artikelansicht (Desktop)",
       caption3: "Wireframe Artikelansicht (Mobile)",
-      finalDesign: "Final Design",
+      finalDesign: "Final Design (Made with Figma)",
       // Final Images für AI News (Web 1-3, Mobile 4-7)
       finalImage1: "https://i.imgur.com/6rlIRPr.jpeg", // Web 1
       finalImage2: "https://i.imgur.com/jlk8t0B.png", // Web 2
@@ -661,22 +679,18 @@ Dies spart Zeit für den Nutzer, versorgt ihn mit allen wichtigen Hauptpunkten u
       finalImage4: "https://i.imgur.com/Cvs9rRa.png", // Mobile 1
       finalImage5: "https://i.imgur.com/43tnnya.png", // Mobile 2
       finalImage6: "https://i.imgur.com/bsaBR4j.png", // Mobile 3
-     // finalImage7: "https://i.imgur.com/43tnnya.png", // Mobile 4 (erneut benutzt, da nur 6 distinct images existieren, aber 7 slots gebraucht werden)
+      finalImage7: "", // optional
       finalImage8: "", // Nicht benutzt
-      
       finalCaption1: "Startseite (Web)",
       finalCaption2: "Artikelübersicht (Filter 1, Web)",
       finalCaption3: "Filter 2 (Web)",
       finalCaption4: "Filter 3 (Web)",
       finalCaption5: "Mobile Startseite",
       finalCaption6: "Mobile Sidebar (Menü)",
-    //  finalCaption7: "Mobile Artikelansicht", // Angepasste Caption für den 7. Slot
+      finalCaption7: "",
       finalCaption8: "",
-
-      
       persona_title: "User Persona",
       persona_text: `
-      
    <div class="persona-grid">
           <dl>
             <dt>Name</dt><dd>Ben</dd>
@@ -684,31 +698,136 @@ Dies spart Zeit für den Nutzer, versorgt ihn mit allen wichtigen Hauptpunkten u
             <dt>Geschlecht</dt><dd>männlich</dd>
             <dt>Beruf</dt><dd>Künstler</dd>
             <dt>Technikaffinität</dt><dd>Sehr hoch — nutzt Smartphone & Tablet täglich</dd>
-            <dt>Nutzungsverhalten</dt><dd>Liess morgens & abends Nachrichten;
-bevorzugt kurze Artikel & Push</dd>
+            <dt>Nutzungsverhalten</dt><dd>Liest morgens & abends Nachrichten; bevorzugt kurze Artikel & Push</dd>
             <dt>Nutzungsart</dt><dd>News-snacking, Multiplattform, personalisierte Feeds</dd>
           </dl>
           <dl>
-            <dt>Ziele</dt><dd>Informiert bleiben;
-Effizienz; Orientierung & Einordnung; relevante Nachrichten filtern</dd>
-            <dt>Pain Points</dt><dd>Vertrauensverlust / Glaubwürdigkeitsprobleme;
-Informationsflut</dd>
-            <dt>Umfeld</dt><dd>Kleiner Freundeskreis;
-sehr beschäftigt (Arbeit/Studium/Interessen)</dd>
+            <dt>Ziele</dt><dd>Informiert bleiben; Effizienz; Orientierung & Einordnung; relevante Nachrichten filtern</dd>
+            <dt>Pain Points</dt><dd>Vertrauensverlust / Glaubwürdigkeitsprobleme; Informationsflut</dd>
+            <dt>Umfeld</dt><dd>Kleiner Freundeskreis; sehr beschäftigt (Arbeit/Studium/Interessen)</dd>
             <dt>Interessen</dt><dd>Trends, Kunst/Design, Menschen, Breaking News (Welt), Wirtschaftspolitik</dd>
             <dt>Werte</dt><dd>Transparenz, Glaubwürdigkeit, Orientierung</dd>
             <dt>Kanäle</dt><dd>Website/Apps, YouTube, Social Media</dd>
           </dl>
           <div class="persona-bio">
             <h5>Bio</h5>
-            <p>Ben ist ein Künstler aus Deutschland
-und schätzt es sehr, auf dem neuesten Stand der Dinge zu sein — sowohl aus persönlichem Interesse als auch für seine Karriere.
+            <p>Ben ist ein Künstler aus Deutschland und schätzt es sehr, auf dem neuesten Stand der Dinge zu sein — sowohl aus persönlichem Interesse als auch für seine Karriere.
 Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensprobleme bei Nachrichtenquellen verunsichern ihn und erschweren die Entscheidung, welche Plattformen er regelmäßig nutzt.</p>
           </div>
         </div>
-      `
+      `,
+      aiNewsFinalDesign: "" // nicht mehr genutzt, Info steckt in finalDesign
+    },
+    artatlas: {
+      mainTitle: "ArtAtlas",
+      title: "Konzept",
+      status: STATUS_COMING_SOON_HTML,
+      text: "A Digital Art Archive",
+      research: "",
+      research_intro_text: "",
+      research_needs: "",
+      research_needs_image: "",
+      research_behavior: "",
+      research_behavior_image: "",
+      research_context: "",
+      research_context_image_1: "",
+      research_context_image_2: "",
+      research_emotions: "",
+      research_emotions_image_1: "",
+      research_emotions_image_2: "",
+      research_goals: "",
+      research_goals_image: "",
+      research_painpoints: "",
+      research_painpoints_image: "",
+      research_demographics: "",
+      research_demographics_image: "",
+      define: "",
+      ideate: "",
+      sitemap: "",
+      sitemapImage: "",
+      userFlow: "",
+      userFlowImage: "",
+      wireframes: "",
+      image1: "",
+      image2: "",
+      image3: "",
+      caption1: "",
+      caption2: "",
+      caption3: "",
+      finalDesign: "",
+      finalImage1: "",
+      finalImage2: "",
+      finalImage3: "",
+      finalImage4: "",
+      finalImage5: "",
+      finalImage6: "",
+      finalImage7: "",
+      finalImage8: "",
+      finalCaption1: "",
+      finalCaption2: "",
+      finalCaption3: "",
+      finalCaption4: "",
+      finalCaption5: "",
+      finalCaption6: "",
+      finalCaption7: "",
+      finalCaption8: ""
+    },
+    theatre_booking: {
+      mainTitle: "Theatre Booking App",
+      title: "Konzept",
+      status: STATUS_COMING_SOON_HTML,
+      text: "",
+      research: "",
+      research_intro_text: "",
+      research_needs: "",
+      research_needs_image: "",
+      research_behavior: "",
+      research_behavior_image: "",
+      research_context: "",
+      research_context_image_1: "",
+      research_context_image_2: "",
+      research_emotions: "",
+      research_emotions_image_1: "",
+      research_emotions_image_2: "",
+      research_goals: "",
+      research_goals_image: "",
+      research_painpoints: "",
+      research_painpoints_image: "",
+      research_demographics: "",
+      research_demographics_image: "",
+      define: "",
+      ideate: "",
+      sitemap: "",
+      sitemapImage: "",
+      userFlow: "",
+      userFlowImage: "",
+      wireframes: "",
+      image1: "",
+      image2: "",
+      image3: "",
+      caption1: "",
+      caption2: "",
+      caption3: "",
+      finalDesign: "",
+      finalImage1: "",
+      finalImage2: "",
+      finalImage3: "",
+      finalImage4: "",
+      finalImage5: "",
+      finalImage6: "",
+      finalImage7: "",
+      finalImage8: "",
+      finalCaption1: "",
+      finalCaption2: "",
+      finalCaption3: "",
+      finalCaption4: "",
+      finalCaption5: "",
+      finalCaption6: "",
+      finalCaption7: "",
+      finalCaption8: ""
     }
   };
+
 // helper: update image item (shows/hides container & sets lazy loading)
   const updateImageItem = (imgElement, captionElement, src, caption) => {
     if (!imgElement) return;
@@ -716,12 +835,12 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
     if (src && src.trim() !== '') {
       imgElement.setAttribute('loading','lazy');
       imgElement.src = src;
-      captionElement.textContent = caption || '';
+      if (captionElement) captionElement.textContent = caption || '';
       if (item) item.style.display = 'block';
     } else {
       imgElement.removeAttribute('src');
       imgElement.removeAttribute('loading');
-      captionElement.textContent = '';
+      if (captionElement) captionElement.textContent = '';
       if (item) item.style.display = 'none';
     }
   };
@@ -775,13 +894,12 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
     finalCaption1.textContent=''; finalCaption2.textContent=''; finalCaption3.textContent=''; finalCaption4.textContent='';
     finalCaption5.textContent=''; finalCaption6.textContent=''; finalCaption7.textContent=''; finalCaption8.textContent='';
     
-    // NEU: AI News Final Designs Container reset
+    // AI News Final Designs Container reset
     aiNewsWebImagesContainer.style.display = 'none';
     aiNewsMobileImagesContainer.style.display = 'none';
     // Leere alle AI News Bilder (aus den neuen Containern)
     [aiNewsWebImage1, aiNewsWebImage2, aiNewsWebImage3, aiNewsMobileImage1, aiNewsMobileImage2, aiNewsMobileImage3, aiNewsMobileImage4].forEach(img => img && img.removeAttribute('src'));
     [aiNewsWebCaption1, aiNewsWebCaption2, aiNewsWebCaption3, aiNewsMobileCaption1, aiNewsMobileCaption2, aiNewsMobileCaption3, aiNewsMobileCaption4].forEach(cap => cap && (cap.textContent = ''));
-
 
     // hide general final design container initially
     projectImageContainer.style.display='none';
@@ -795,8 +913,7 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
     // fill data
     projectMainTitle.textContent = data.mainTitle || '';
     projectTitle.textContent = data.title || '';
-    projectStatusNote.innerHTML = data.status ||
-'';
+    projectStatusNote.innerHTML = data.status || '';
     projectText.innerHTML = data.text || '';
 
     projectResearch.textContent = data.research || '';
@@ -804,8 +921,7 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
     
     // Define Section
     if (data.persona_title && data.persona_text) {
-      projectDefine.textContent = data.define ||
-'';
+      projectDefine.textContent = data.define || '';
       personaSubtitle.textContent = data.persona_title;
       personaSubtitle.style.display = 'block';
       personaText.innerHTML = data.persona_text;
@@ -823,7 +939,6 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
       ideateImage3.src = data.ideateImage3;
       ideateImagesContainer.style.display='flex';
     }
-
 
     // research images
     researchNeeds.textContent = data.research_needs || '';
@@ -847,34 +962,26 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
     }
 
     researchGoals.textContent = data.research_goals || '';
-    if (data.research_goals_image) { researchGoalsImage.src = data.research_goals_image; researchGoalsImageContainer.style.display='flex';
-    }
+    if (data.research_goals_image) { researchGoalsImage.src = data.research_goals_image; researchGoalsImageContainer.style.display='flex'; }
 
     researchPainPoints.textContent = data.research_painpoints || '';
-    if (data.research_painpoints_image) { researchPainPointsImage.src = data.research_painpoints_image; researchPainPointsImageContainer.style.display='flex';
-    }
+    if (data.research_painpoints_image) { researchPainPointsImage.src = data.research_painpoints_image; researchPainPointsImageContainer.style.display='flex'; }
 
     researchDemographics.textContent = data.research_demographics || '';
-    if (data.research_demographics_image) { researchDemographicsImage.src = data.research_demographics_image; researchDemographicsImageContainer.style.display='flex';
-    }
+    if (data.research_demographics_image) { researchDemographicsImage.src = data.research_demographics_image; researchDemographicsImageContainer.style.display='flex'; }
 
     projectSitemap.textContent = data.sitemap || '';
-    if (data.sitemapImage) { sitemapImage.src = data.sitemapImage; sitemapImageContainer && (sitemapImageContainer.style.display='flex');
-    }
+    if (data.sitemapImage) { sitemapImage.src = data.sitemapImage; sitemapImageContainer && (sitemapImageContainer.style.display='flex'); }
+
     projectUserFlow.textContent = data.userFlow || '';
-    if (data.userFlowImage) { userFlowImage.src = data.userFlowImage; userFlowImageContainer && (userFlowImageContainer.style.display='flex');
-    }
+    if (data.userFlowImage) { userFlowImage.src = data.userFlowImage; userFlowImageContainer && (userFlowImageContainer.style.display='flex'); }
 
     // wireframes (1..3)
     projectWireframes.textContent = data.wireframes || '';
     let wireframesExist = false;
-    if (data.image1) { projectImage1.src = data.image1; caption1.textContent = data.caption1 || ''; projectImageItem1.style.display='block'; wireframesExist = true; } else { projectImage1.removeAttribute('src'); caption1.textContent='';
-    projectImageItem1.style.display='none'; }
-    if (data.image2) { projectImage2.src = data.image2; caption2.textContent = data.caption2 || ''; projectImageItem2.style.display='block'; wireframesExist = true;
-    } else { projectImage2.removeAttribute('src'); caption2.textContent=''; projectImageItem2.style.display='none'; }
-    if (data.image3 && projectImageItem3) { projectImage3.src = data.image3;
-    caption3.textContent = data.caption3 || ''; projectImageItem3.style.display='block'; wireframesExist = true; } else if (projectImageItem3) { projectImage3.removeAttribute('src'); caption3.textContent=''; projectImageItem3.style.display='none';
-    }
+    if (data.image1) { projectImage1.src = data.image1; caption1.textContent = data.caption1 || ''; projectImageItem1.style.display='block'; wireframesExist = true; } else { projectImage1.removeAttribute('src'); caption1.textContent=''; projectImageItem1.style.display='none'; }
+    if (data.image2) { projectImage2.src = data.image2; caption2.textContent = data.caption2 || ''; projectImageItem2.style.display='block'; wireframesExist = true; } else { projectImage2.removeAttribute('src'); caption2.textContent=''; projectImageItem2.style.display='none'; }
+    if (data.image3 && projectImageItem3) { projectImage3.src = data.image3; caption3.textContent = data.caption3 || ''; projectImageItem3.style.display='block'; wireframesExist = true; } else if (projectImageItem3) { projectImage3.removeAttribute('src'); caption3.textContent=''; projectImageItem3.style.display='none'; }
     projectImageContainer.style.display = wireframesExist ? 'flex' : 'none';
     
     // Final designs (iNeed / General)
@@ -891,17 +998,14 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
         updateImageItem(finalImage7, finalCaption7, data.finalImage7, data.finalCaption7);
         updateImageItem(finalImage8, finalCaption8, data.finalImage8, data.finalCaption8);
         
-        // decide if any final images exist for iNeed
         const finalImagesArray = [data.finalImage1, data.finalImage2, data.finalImage3, data.finalImage4, data.finalImage5, data.finalImage6, data.finalImage7, data.finalImage8];
         const anyFinalExists = finalImagesArray.some(src => src && src.length > 0);
         finalImageContainer.style.display = anyFinalExists ? 'flex' : 'none';
         
-        // Hide AI News specific containers
         aiNewsFinalDesignTitle.textContent = '';
     }
     // Logic for AI News Final Design Display (structured view)
     else if (slug === 'ai_news') {
-        // Hide general final design container
         finalImageContainer.style.display = 'none';
 
         aiNewsFinalDesignTitle.textContent = data.aiNewsFinalDesign || '';
@@ -928,8 +1032,11 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
         } else {
             aiNewsMobileImagesContainer.style.display = 'none';
         }
+    } else {
+        // Andere Projekte (ArtAtlas, Theatre Booking) haben aktuell keine Final Designs
+        finalImageContainer.style.display = 'none';
+        aiNewsFinalDesignTitle.textContent = '';
     }
-
 
     // switch view & focus
     lastFocusedElement = document.activeElement;
@@ -950,16 +1057,13 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
 
   // Image enlargement / lightbox
   function setupImageEnlargement() {
-    // use delegated binding: listen on project-view for clicks on images (not on #lightbox-img)
     document.querySelector('#project-view').addEventListener('click', (e) => {
       const img = e.target.closest('img');
       if (!img) return;
       if (img.id === 'lightbox-img') return;
-      // only act if src exists
       if (img.src) {
         lightboxImg.src = img.src;
         lightbox.classList.add('active');
-  
         lightbox.setAttribute('aria-hidden','false');
       }
     });
@@ -979,21 +1083,14 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
         } else if (projectView.style.display === 'block') {
           hideProject();
         }
-   
       }
     });
   }
 
   // Attach project buttons
   document.querySelectorAll('.work-item').forEach(item=>{
-    item.addEventListener('click', (ev)=> {
+    item.addEventListener('click', () => {
       showProject(item.dataset.project);
-    });
-    // keep keyup handler as fallback for non-button elements (buttons handle it natively)
-    item.addEventListener('keyup', (ev) => {
-      if (ev.key === 'Enter' || ev.key === ' ') {
-        ev.currentTarget.click();
-      }
     });
   });
   // logo returns home
@@ -1004,7 +1101,7 @@ Er kämpft oft mit Informationsüberflutung und Auswahlstress. Vertrauensproblem
 
   // initialize lightbox handling
   setupImageEnlargement();
-  // set initial state (hide final-item-6 if needed) - mirrors PROJECTS ineed finalImage6 empty
+  // set initial state (hide final-item-6 if needed)
   (function initialCleanup(){
     try {
       if (!finalImage6 || !finalImage6.src) {
